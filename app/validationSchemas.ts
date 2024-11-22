@@ -6,5 +6,5 @@ export const issueSchema = z.object({
 });
 
 export const issueStatusSchema = z.object({
-    status: z.enum(["Open", "In Progress", "Closed"]),
+    status: z.enum(["OPEN", "IN_PROGRESS", "CLOSED"]),
 });

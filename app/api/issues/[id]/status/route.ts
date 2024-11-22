@@ -2,12 +2,6 @@ import { issueStatusSchema } from "@/app/validationSchemas";
 import prisma from "@/prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
-// const statusMap: Record<string, Status> = {
-//     Open: "OPEN",
-//     "In Progress": "IN_PROGRESS",
-//     Closed: "CLOSED",
-// };
-
 export async function PATCH(
     request: NextRequest,
     { params }: { params: Promise<{ id: string }> }
