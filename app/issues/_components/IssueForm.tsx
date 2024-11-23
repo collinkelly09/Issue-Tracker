@@ -30,6 +30,7 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
 
     const onSubmit = handleSubmit(async (data) => {
         try {
+            // throw new Error();
             setSubmitting(true);
             if (issue) await axios.patch(`/api/issues/${issue.id}`, data);
             else await axios.post("/api/issues", data);
