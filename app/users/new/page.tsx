@@ -1,17 +1,16 @@
 "use client";
 
-import { Box, Button, Callout, Spinner, TextField } from "@radix-ui/themes";
-import * as Label from "@radix-ui/react-label";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { string, z } from "zod";
-import { userSchema } from "@/app/validationSchemas";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
 import { ErrorMessage } from "@/app/components";
+import { userSchema } from "@/app/validationSchemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as Label from "@radix-ui/react-label";
+import { Box, Button, Callout, Spinner, TextField } from "@radix-ui/themes";
+import axios from "axios";
 import { signIn } from "next-auth/react";
-import prisma from "@/prisma/client";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 type UserFormData = z.infer<typeof userSchema>;
 
@@ -25,30 +24,25 @@ const NewUserPage = () => {
     const [error, setError] = useState("");
     const [isSubmitting, setSubmitting] = useState(false);
 
-    const onSubmit = handleSubmit(async (data) => {
+    const onSubmit = handleSubmit(async (data: UserFormData) => {
         try {
             setSubmitting(true);
-            if (data.password === data.confirmPassword) {
-                const response = await axios.post("/api/register", data);
-                console.log(response.data.status);
-                if (response.data.status === 200) {
-                    await signIn("credentials", {
-                        redirect: false,
-                        email: data.email,
-                        password: data.password,
-                    });
+            const response = await axios.post("/api/register", data);
+            console.log("data", response.data, "response:", response);
+            if (response.status === 201) {
+                await signIn("credentials", {
+                    redirect: false,
+                    email: data.email,
+                    password: data.password,
+                });
 
-                    router.push("/");
-                    router.refresh();
-                } else {
-                    throw new Error(response.data.error);
-                }
+                router.push("/");
+                router.refresh();
+            } else {
+                throw new Error(response.data.error);
             }
         } catch (err: any) {
-            const errorMessage =
-                err.response?.data?.error ||
-                err.message ||
-                "An unknown error occurred";
+            const errorMessage = err.response?.data?.error || err.message;
             setError(errorMessage);
             setSubmitting(false);
         }
