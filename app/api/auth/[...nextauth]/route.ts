@@ -55,14 +55,11 @@ const handler = NextAuth({
     },
     callbacks: {
         async redirect({ url, baseUrl }) {
-            // You can customize the redirect URL here
-            // Ensure that after successful login, we redirect to the correct place
-            // Redirect to the home page or any page you'd like after Google login
-
+            console.log(url);
             if (url.startsWith(baseUrl)) {
-                return baseUrl; // Return the base URL or homepage
+                return baseUrl;
             }
-            return url; // If not, just return the URL provided by NextAuth
+            return url;
         },
     },
 });
