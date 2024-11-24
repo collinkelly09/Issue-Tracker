@@ -36,9 +36,8 @@ const NavLinks = ({ currentPath }: { currentPath: string }) => {
                 <li key={link.href}>
                     <Link
                         className={classNames({
-                            "text-zinc-900": link.href === currentPath,
-                            "text-zinc-500": link.href !== currentPath,
-                            "hover:text-zinc-800 transition-colors": true,
+                            "nav-link": true,
+                            "active-nav-link": link.href === currentPath,
                         })}
                         href={link.href}
                     >
@@ -67,9 +66,9 @@ const AuthStatus = ({ currentPath }: { currentPath: string }) => {
                     <li key={authLink.href}>
                         <Link
                             className={classNames({
-                                "text-zinc-900": authLink.href === currentPath,
-                                "text-zinc-500": authLink.href !== currentPath,
-                                "hover:text-zinc-800 transition-colors": true,
+                                "nav-link": true,
+                                "active-nav-link":
+                                    authLink.href === currentPath,
                             })}
                             href={authLink.href}
                         >
