@@ -1,9 +1,18 @@
 import { userSchema } from "@/app/validationSchemas";
 import prisma from "@/prisma/client";
 import bcrypt from "bcrypt";
+import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
+import authOptions from "../auth/authOptions";
 
 export async function POST(request: NextRequest) {
+    const session = await getServerSession(authOptions);
+    if (session)
+        return NextResponse.json(
+            { message: "Cannot register when signed in" },
+            { status: 401 }
+        );
+
     const body = await request.json();
 
     const validation = userSchema.safeParse(body);
