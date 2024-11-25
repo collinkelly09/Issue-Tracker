@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AiFillBug } from "react-icons/ai";
+import { Skeleton } from "./components";
 
 const NavBar = () => {
     const currentPath = usePathname();
@@ -51,13 +52,20 @@ const NavLinks = ({ currentPath }: { currentPath: string }) => {
 
 const AuthStatus = ({ currentPath }: { currentPath: string }) => {
     const { status, data: session } = useSession();
+    // const status = "loading";
 
     const authLinks = [
         { label: "Login", href: "/api/auth/signin" },
         { label: "Register", href: "/users/new" },
     ];
 
-    if (status === "loading") return null;
+    if (status === "loading")
+        return (
+            <Flex gap="3">
+                <Skeleton width="3rem" />
+                <Skeleton width="4rem" />
+            </Flex>
+        );
 
     if (status === "unauthenticated")
         return (
