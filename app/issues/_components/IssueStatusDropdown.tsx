@@ -5,7 +5,15 @@ import { issueStatusSchema } from "@/app/validationSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Issue } from "@prisma/client";
 import { CheckIcon } from "@radix-ui/react-icons";
-import { Button, Callout, Flex, Popover, RadioGroup } from "@radix-ui/themes";
+import {
+    Box,
+    Button,
+    Callout,
+    DropdownMenu,
+    Flex,
+    Popover,
+    RadioGroup,
+} from "@radix-ui/themes";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -23,11 +31,13 @@ const IssueStatusDropdown = ({ issue }: { issue: Issue }) => {
     } = useForm<IssueStatusData>({
         resolver: zodResolver(issueStatusSchema),
         defaultValues: {
-            status: issue.status, // Initialize with the current status of the issue
+            // Initialize with the current status of the issue
+            status: issue.status,
         },
     });
     const [error, setError] = useState("");
     const [isSubmitting, setSubmitting] = useState(false);
+    // const [isOpen, setIsOpen] = useState(true);
 
     const onSubmit = handleSubmit(async (data) => {
         try {
@@ -52,7 +62,11 @@ const IssueStatusDropdown = ({ issue }: { issue: Issue }) => {
                         </Callout.Root>
                     )}
                     <form onSubmit={onSubmit}>
-                        <Flex className="pb-3" direction="column">
+                        <Flex
+                            className="pb-3"
+                            direction="column"
+                            justify="center"
+                        >
                             <Controller
                                 name="status"
                                 control={control}
@@ -76,13 +90,19 @@ const IssueStatusDropdown = ({ issue }: { issue: Issue }) => {
                                     </RadioGroup.Root>
                                 )}
                             />
+                            <Popover.Close>
+                                <Box className="flex justify-center pt-2 px-3">
+                                    <Button
+                                        size="1"
+                                        type="submit"
+                                        className="mt-2"
+                                    >
+                                        <CheckIcon />
+                                        Update
+                                    </Button>
+                                </Box>
+                            </Popover.Close>
                         </Flex>
-                        <Popover.Close>
-                            <Button size="1" type="submit">
-                                <CheckIcon />
-                                Update
-                            </Button>
-                        </Popover.Close>
                     </form>
                 </div>
             </Popover.Content>
