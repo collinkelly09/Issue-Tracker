@@ -1,7 +1,7 @@
 import { IssueStatusBadge, Link } from "@/app/components";
 import prisma from "@/prisma/client";
 import { Issue, Status } from "@prisma/client";
-import { ArrowUpIcon } from "@radix-ui/react-icons";
+import { ArrowUpIcon, Cross2Icon } from "@radix-ui/react-icons";
 import { Table } from "@radix-ui/themes";
 import NextLink from "next/link";
 import IssueActions from "./IssueActions";
@@ -63,6 +63,16 @@ const IssuesPage = async ({ searchParams }: Props) => {
                                     <>
                                         {" "}
                                         <ArrowUpIcon className="inline" />
+                                        <NextLink
+                                            href={{
+                                                query: {
+                                                    status,
+                                                    orderBy: "",
+                                                },
+                                            }}
+                                        >
+                                            <Cross2Icon className="inline" />
+                                        </NextLink>
                                     </>
                                 )}
                             </Table.ColumnHeaderCell>
