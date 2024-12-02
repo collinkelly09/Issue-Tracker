@@ -12,9 +12,9 @@ export const patchIssueSchema = z.object({
         .min(1, "Description is required")
         .max(65535)
         .optional(),
-    assignedToUserId: z
+    userId: z
         .string()
-        .min(1, "AssignedToUserId is required")
+        .min(1, "UserId is required")
         .max(255)
         .optional()
         .nullable(),

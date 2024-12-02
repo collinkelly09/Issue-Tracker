@@ -25,8 +25,8 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
     return (
         <Select.Root
             onValueChange={(userId: string) => {
-                axios.patch("/api/issues/" + issue.id, {
-                    assignedToUserId: userId,
+                axios.patch(`/api/issues/${issue.id}`, {
+                    userId: userId,
                 });
             }}
         >
