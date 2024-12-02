@@ -1,10 +1,10 @@
 import { IssueStatusBadge, Link } from "@/app/components";
 import prisma from "@/prisma/client";
 import { Issue, Status } from "@prisma/client";
-import NextLink from "next/link";
+import { ArrowUpIcon } from "@radix-ui/react-icons";
 import { Table } from "@radix-ui/themes";
+import NextLink from "next/link";
 import IssueActions from "./IssueActions";
-import { ArrowTopRightIcon, ArrowUpIcon } from "@radix-ui/react-icons";
 
 interface Props {
     searchParams: Promise<{ status: Status; orderBy: keyof Issue }>;
