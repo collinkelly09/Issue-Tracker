@@ -9,7 +9,7 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "name": "Issue Tracker",
+            "name": "MySQL dbs",
             "database": "issue-tracker",
             "username": "root"
         }
