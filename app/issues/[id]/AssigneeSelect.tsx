@@ -24,9 +24,10 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
 
     return (
         <Select.Root
+            defaultValue={issue.userId || "unassigned"}
             onValueChange={(userId: string) => {
                 axios.patch(`/api/issues/${issue.id}`, {
-                    userId: userId,
+                    userId: userId === "unassigned" ? null : userId,
                 });
             }}
         >
@@ -34,6 +35,7 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
             <Select.Content>
                 <Select.Group>
                     <Select.Label>Select</Select.Label>
+                    <Select.Item value="unassigned">Unassigned</Select.Item>
                     {users?.map((user) => (
                         <Select.Item key={user.id} value={user.id}>
                             {user.name}
