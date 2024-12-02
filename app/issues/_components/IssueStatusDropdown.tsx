@@ -1,7 +1,7 @@
 "use client";
 
 import { IssueStatusBadge } from "@/app/components";
-import { issueStatusSchema } from "@/app/validationSchemas";
+import { patchIssueSchema } from "@/app/validationSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Issue } from "@prisma/client";
 import { CheckIcon } from "@radix-ui/react-icons";
@@ -9,7 +9,6 @@ import {
     Box,
     Button,
     Callout,
-    DropdownMenu,
     Flex,
     Popover,
     RadioGroup,
@@ -20,7 +19,7 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
-type IssueStatusData = z.infer<typeof issueStatusSchema>;
+type IssueStatusData = z.infer<typeof patchIssueSchema>;
 
 const IssueStatusDropdown = ({ issue }: { issue: Issue }) => {
     const router = useRouter();
@@ -29,7 +28,7 @@ const IssueStatusDropdown = ({ issue }: { issue: Issue }) => {
         handleSubmit,
         formState: { errors },
     } = useForm<IssueStatusData>({
-        resolver: zodResolver(issueStatusSchema),
+        resolver: zodResolver(patchIssueSchema),
         defaultValues: {
             // Initialize with the current status of the issue
             status: issue.status,
@@ -37,14 +36,16 @@ const IssueStatusDropdown = ({ issue }: { issue: Issue }) => {
     });
     const [error, setError] = useState("");
     const [isSubmitting, setSubmitting] = useState(false);
-    // const [isOpen, setIsOpen] = useState(true);
 
     const onSubmit = handleSubmit(async (data) => {
         try {
-            await axios.patch(`/api/issues/${issue.id}/status`, data);
+            setSubmitting(true);
+            await axios.patch(`/api/issues/${issue.id}`, data);
             router.refresh();
+            setSubmitting(false);
         } catch (error) {
             setError("An unexpected error occurred.");
+            setSubmitting(false);
         }
     });
     return (
@@ -96,6 +97,7 @@ const IssueStatusDropdown = ({ issue }: { issue: Issue }) => {
                                         size="1"
                                         type="submit"
                                         className="mt-2"
+                                        disabled={isSubmitting}
                                     >
                                         <CheckIcon />
                                         Update
