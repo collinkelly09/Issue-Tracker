@@ -52,7 +52,6 @@ const NavLinks = ({ currentPath }: { currentPath: string }) => {
 
 const AuthStatus = ({ currentPath }: { currentPath: string }) => {
     const { status, data: session } = useSession();
-    // const status = "loading";
 
     const authLinks = [
         { label: "Login", href: "/api/auth/signin" },

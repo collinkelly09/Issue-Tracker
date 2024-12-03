@@ -38,7 +38,7 @@ const IssuesPage = async ({ searchParams }: Props) => {
         <Flex direction="column" gap="3">
             <IssueActions />
             <IssueTable
-                searchParams={searchParams}
+                searchParams={awaitedParams}
                 issues={issues}
                 status={status!}
             />

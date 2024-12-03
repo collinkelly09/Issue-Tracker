@@ -28,7 +28,6 @@ const NewUserPage = () => {
         try {
             setSubmitting(true);
             const response = await axios.post("/api/register", data);
-            console.log("data", response.data, "response:", response);
             if (response.status === 201) {
                 await signIn("credentials", {
                     redirect: false,

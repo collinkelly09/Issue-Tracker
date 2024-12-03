@@ -55,7 +55,6 @@ const authOptions: NextAuthOptions = {
     },
     callbacks: {
         async redirect({ url, baseUrl }) {
-            console.log(url);
             if (url.startsWith(baseUrl)) {
                 return baseUrl;
             }
