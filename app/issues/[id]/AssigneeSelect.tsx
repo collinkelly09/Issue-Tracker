@@ -17,7 +17,7 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
     const assignIssue = (userId: string) => {
         axios
             .patch(`/api/issues/${issue.id}`, {
-                userId: userId === "unassigned" ? null : userId,
+                assignedId: userId === "unassigned" ? null : userId,
             })
             .catch(() => {
                 toast.error("Changes could not be saved.");
@@ -27,7 +27,7 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
     return (
         <>
             <Select.Root
-                defaultValue={issue.userId || "unassigned"}
+                defaultValue={issue.assignedId || "unassigned"}
                 onValueChange={assignIssue}
             >
                 <Select.Trigger placeholder="Assign..." />

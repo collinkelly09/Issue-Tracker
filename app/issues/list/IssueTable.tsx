@@ -11,14 +11,12 @@ export interface IssueQuery {
 }
 
 interface Props {
-    searchParams: Promise<IssueQuery>;
+    searchParams: IssueQuery;
     issues: Issue[];
     status: Status;
 }
 
 const IssueTable = async ({ searchParams, issues, status }: Props) => {
-    const awaitedParams = await searchParams;
-
     return (
         <Table.Root variant="surface">
             <Table.Header>
@@ -39,7 +37,7 @@ const IssueTable = async ({ searchParams, issues, status }: Props) => {
                                 {column.label}
                             </NextLink>
 
-                            {column.value === awaitedParams.orderBy && (
+                            {column.value === searchParams.orderBy && (
                                 <>
                                     {" "}
                                     <ArrowUpIcon className="inline" />
@@ -47,7 +45,7 @@ const IssueTable = async ({ searchParams, issues, status }: Props) => {
                                         href={{
                                             query: {
                                                 status,
-                                                orderBy: "",
+                                                orderBy: null,
                                             },
                                         }}
                                     >
