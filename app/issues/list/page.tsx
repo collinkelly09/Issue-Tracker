@@ -44,8 +44,8 @@ const IssuesPage = async ({ searchParams }: Props) => {
             />
             <Pagination
                 pageSize={pageSize}
-                itemCount={issueCount}
                 currentPage={page}
+                itemCount={issueCount}
             />
         </Flex>
     );
