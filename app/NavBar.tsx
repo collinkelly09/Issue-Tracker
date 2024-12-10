@@ -53,37 +53,19 @@ const NavLinks = ({ currentPath }: { currentPath: string }) => {
 const AuthStatus = ({ currentPath }: { currentPath: string }) => {
     const { status, data: session } = useSession();
 
-    const authLinks = [
-        { label: "Login", href: "/api/auth/signin" },
-        { label: "Register", href: "/users/new" },
-    ];
-
-    if (status === "loading")
-        return (
-            <Flex gap="3">
-                <Skeleton width="3rem" />
-                <Skeleton width="4rem" />
-            </Flex>
-        );
+    if (status === "loading") return <Skeleton width="3rem" />;
 
     if (status === "unauthenticated")
         return (
-            <ul className="flex space-x-6">
-                {authLinks.map((authLink) => (
-                    <li key={authLink.href}>
-                        <Link
-                            className={classNames({
-                                "nav-link": true,
-                                "active-nav-link":
-                                    authLink.href === currentPath,
-                            })}
-                            href={authLink.href}
-                        >
-                            {authLink.label}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+            <Link
+                className={classNames({
+                    "nav-link": true,
+                    "active-nav-link": "/api/auth/signin" === currentPath,
+                })}
+                href={"/api/auth/signin"}
+            >
+                Login
+            </Link>
         );
 
     return (
