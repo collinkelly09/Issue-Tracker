@@ -16,9 +16,9 @@ interface Props {
 }
 
 const Pagination = ({ itemCount, pageSize, currentPage }: Props) => {
-  const sizes = [10, 25, 50];
   const router = useRouter();
   const searchParams = useSearchParams();
+  const sizes = [10, 25, 50];
 
   const pageCount = Math.ceil(itemCount / pageSize);
   if (pageCount <= 1) return null;
@@ -31,13 +31,15 @@ const Pagination = ({ itemCount, pageSize, currentPage }: Props) => {
 
   const changePageSize = (size: number) => {
     const params = new URLSearchParams(searchParams);
-
+    if (size > itemCount) {
+      size = itemCount;
+    }
     params.set("pageSize", size.toString());
     router.push("?" + params.toString());
   };
 
   return (
-    <Flex justify={{ initial: "center", md: "between" }}>
+    <Flex justify={{ initial: "center", sm: "between", md: "between" }}>
       <Flex align="center" gap="2">
         <Button
           color="gray"

@@ -1,3 +1,5 @@
+// "use client";
+
 import { IssueStatusBadge, Link } from "@/app/components";
 import { Issue, Status } from "@prisma/client";
 import { ArrowUpIcon, Cross2Icon } from "@radix-ui/react-icons";
@@ -18,7 +20,7 @@ interface Props {
   status: Status;
 }
 
-const IssueTable = async ({ searchParams, issues, status }: Props) => {
+const IssueTable = ({ searchParams, issues, status }: Props) => {
   return (
     <Table.Root variant="surface">
       <Table.Header>

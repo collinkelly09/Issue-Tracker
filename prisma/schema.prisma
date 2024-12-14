@@ -19,12 +19,24 @@ model Issue {
   updatedAt    DateTime @updatedAt
   assignedId   String?  @db.VarChar(255)
   assignedUser User?    @relation(fields: [assignedId], references: [id])
+
+  Comment Comment[]
 }
 
 enum Status {
   OPEN
   IN_PROGRESS
   CLOSED
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  comment   String   @db.Text
+  createdAt DateTime @default(now())
+  issueId   Int
+  issue     Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  userId    String   @db.VarChar(255)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Account {
@@ -67,6 +79,7 @@ model User {
   accounts       Account[]
   sessions       Session[]
   assignedIssues Issue[]
+  Comment        Comment[]
 
   @@map("users")
 }
