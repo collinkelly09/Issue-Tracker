@@ -10,6 +10,7 @@ import EditIssueButton from "./EditIssueButton";
 import IssueDetails from "./IssueDetails";
 import { cache } from "react";
 import CommentsPage from "../_components/CommentsPage";
+import NewComment from "../_components/NewComment";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -43,6 +44,7 @@ const IssueDetailPage = async ({ params }: Props) => {
       )}
       <Box className="md:col-span-4">
         <CommentsPage />
+        {session?.user && <NewComment issueId={issue.id} />}
       </Box>
     </Grid>
   );

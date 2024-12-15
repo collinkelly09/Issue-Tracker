@@ -1,14 +1,5 @@
 import prisma from "@/prisma/client";
-import {
-  Avatar,
-  Box,
-  Card,
-  Flex,
-  Heading,
-  Table,
-  Text,
-} from "@radix-ui/themes";
-import React from "react";
+import { Avatar, Box, Flex, Heading, Table, Text } from "@radix-ui/themes";
 
 const CommentsPage = async () => {
   const comments = await prisma.comment.findMany({
@@ -18,9 +9,11 @@ const CommentsPage = async () => {
 
   return (
     <Box>
-      <Heading size="4" ml="2" mb="3">
-        Comments
-      </Heading>
+      {comments.length > 0 && (
+        <Heading size="4" ml="2" mb="3">
+          Comments
+        </Heading>
+      )}
       <Table.Root>
         <Table.Body>
           {comments.map((comment) => (

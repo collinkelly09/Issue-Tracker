@@ -4,16 +4,16 @@ import authOptions from "../../auth/authOptions";
 import prisma from "@/prisma/client";
 
 export async function GET(
-    request: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
+  request: NextRequest,
+  { params }: { params: Promise<{ email: string }> }
 ) {
-    const session = await getServerSession(authOptions);
-    if (!session) return NextResponse.json({}, { status: 401 });
+  const session = await getServerSession(authOptions);
+  if (!session) return NextResponse.json({}, { status: 401 });
 
-    const { id } = await params;
+  const { email } = await params;
 
-    const user = await prisma.user.findUnique({
-        where: { id: id },
-    });
-    return NextResponse.json(user);
+  const user = await prisma.user.findUnique({
+    where: { email: email },
+  });
+  return NextResponse.json(user);
 }
