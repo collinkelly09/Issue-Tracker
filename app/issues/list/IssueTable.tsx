@@ -1,5 +1,3 @@
-// "use client";
-
 import { IssueStatusBadge, Link } from "@/app/components";
 import { Issue, Status } from "@prisma/client";
 import { ArrowUpIcon, Cross2Icon } from "@radix-ui/react-icons";
