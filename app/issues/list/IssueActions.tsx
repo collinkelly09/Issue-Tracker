@@ -4,7 +4,7 @@ import Filter from "./Filter";
 
 const IssueActions = () => {
   return (
-    <Flex justify="between">
+    <Flex justify="between" align="end">
       <Filter />
       <Button>
         <Link href="/issues/new">New Issue</Link>

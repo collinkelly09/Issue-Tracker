@@ -1,7 +1,7 @@
 "use client";
 
 import { Status } from "@prisma/client";
-import { Select } from "@radix-ui/themes";
+import { Flex, Text, Select, Box } from "@radix-ui/themes";
 import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 
@@ -28,19 +28,26 @@ const IssueStatusFilter = () => {
   };
 
   return (
-    <Select.Root
-      defaultValue={searchParams.get("status") || ""}
-      onValueChange={handleValueChange}
-    >
-      <Select.Trigger placeholder="Status..." />
-      <Select.Content>
-        {statuses.map((status) => (
-          <Select.Item key={status.value} value={status.value}>
-            {status.label}
-          </Select.Item>
-        ))}
-      </Select.Content>
-    </Select.Root>
+    <Flex direction="column">
+      <Text size="1" color="gray">
+        Status:
+      </Text>
+      <Box ml="2">
+        <Select.Root
+          defaultValue={searchParams.get("status") || ""}
+          onValueChange={handleValueChange}
+        >
+          <Select.Trigger placeholder="Status..." />
+          <Select.Content>
+            {statuses.map((status) => (
+              <Select.Item key={status.value} value={status.value}>
+                {status.label}
+              </Select.Item>
+            ))}
+          </Select.Content>
+        </Select.Root>
+      </Box>
+    </Flex>
   );
 };
 
