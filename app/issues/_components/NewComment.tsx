@@ -28,14 +28,15 @@ const NewComment = ({ issueId }: { issueId: number }) => {
   if (!isLoading) {
     user = users?.find((user) => user.email === session?.user?.email);
   }
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<CommentFormData>({
     resolver: zodResolver(commentFormSchema),
   });
-
   const [error, setError] = useState("");
   const [isSubmitting, setSubmitting] = useState(false);
 
@@ -44,11 +45,12 @@ const NewComment = ({ issueId }: { issueId: number }) => {
       setSubmitting(true);
       const submissionData = {
         ...data,
-        userId: user?.id,
+        userId: user!.id,
         issueId,
       };
       await axios.post("/api/comments", submissionData);
       router.refresh();
+      reset();
       setSubmitting(false);
     } catch (error) {
       setSubmitting(false);

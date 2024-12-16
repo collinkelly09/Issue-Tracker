@@ -42,11 +42,11 @@ export const patchIssueSchema = z.object({
 //   });
 
 export const commentSchema = z.object({
-  comment: z.string().min(5, "Cannot post empty comment"),
+  comment: z.string().min(2, "Cannot post empty comment"),
   userId: z.string().min(1, "userId is required").max(255),
   issueId: z.number(),
 });
 
 export const commentFormSchema = z.object({
-  comment: z.string().min(5, "Cannot post empty comment"),
+  comment: z.string().min(2, "Cannot post empty comment"),
 });
