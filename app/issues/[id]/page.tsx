@@ -9,8 +9,8 @@ import DeleteIssueButton from "./DeleteIssueButton";
 import EditIssueButton from "./EditIssueButton";
 import IssueDetails from "./IssueDetails";
 import { cache } from "react";
-import CommentsPage from "../_components/CommentsPage";
-import NewComment from "../_components/NewComment";
+import CommentsPage from "./CommentsList";
+import NewComment from "./NewComment";
 
 interface Props {
   params: Promise<{ id: string }>;
