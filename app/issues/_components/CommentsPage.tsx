@@ -1,9 +1,9 @@
 import prisma from "@/prisma/client";
 import { Avatar, Box, Flex, Heading, Table, Text } from "@radix-ui/themes";
 
-const CommentsPage = async () => {
+const CommentsPage = async ({ issueId }: { issueId: number }) => {
   const comments = await prisma.comment.findMany({
-    where: { issueId: 1 },
+    where: { issueId },
     include: { user: true },
   });
 

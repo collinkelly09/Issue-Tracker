@@ -43,7 +43,7 @@ const IssueDetailPage = async ({ params }: Props) => {
         </Box>
       )}
       <Box className="md:col-span-4">
-        <CommentsPage />
+        <CommentsPage issueId={issue.id} />
         {session?.user && <NewComment issueId={issue.id} />}
       </Box>
     </Grid>
