@@ -59,6 +59,4 @@ export async function generateMetadata({ params }: Props) {
     description: `Details of issue ${issue?.id}`,
   };
 }
-{
-}
 export default IssueDetailPage;
