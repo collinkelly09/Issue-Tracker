@@ -20,6 +20,8 @@ const IssueStatusFilter = () => {
     if (status) params.append("status", status);
     if (searchParams.get("orderBy"))
       params.append("orderBy", searchParams.get("orderBy")!);
+    if (searchParams.get("assignee"))
+      params.append("assignee", searchParams.get("assignee")!);
 
     const query = params.size ? "?" + params.toString() : "";
     router.push(`/issues/list${query}`);
@@ -30,7 +32,7 @@ const IssueStatusFilter = () => {
       defaultValue={searchParams.get("status") || ""}
       onValueChange={handleValueChange}
     >
-      <Select.Trigger placeholder="Filter by status..." />
+      <Select.Trigger placeholder="Status..." />
       <Select.Content>
         {statuses.map((status) => (
           <Select.Item key={status.value} value={status.value}>

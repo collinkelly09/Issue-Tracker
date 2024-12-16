@@ -10,8 +10,15 @@ const IssueAssigneeFilter = () => {
   const { data: users, isLoading } = useUsers();
   if (isLoading) return null;
 
-  const handleValueChange = () => {
+  const handleValueChange = (assignee: string) => {
     const params = new URLSearchParams();
+    if (assignee) params.append("assignee", assignee);
+    if (searchParams.get("status"))
+      params.append("status", searchParams.get("status")!);
+    if (searchParams.get("orderBy"))
+      params.append("orderBy", searchParams.get("orderBy")!);
+    const query = params.size ? "?" + params.toString() : "";
+    router.push(`/issues/list${query}`);
   };
 
   return (
@@ -19,7 +26,7 @@ const IssueAssigneeFilter = () => {
       defaultValue={searchParams.get("assignee") || ""}
       onValueChange={handleValueChange}
     >
-      <Select.Trigger placeholder="Filter by Assignee..." />
+      <Select.Trigger placeholder="Assignee..." />
       <Select.Content>
         <Select.Item value="all">All</Select.Item>
         <Select.Item value="unassigned">Unassigned</Select.Item>

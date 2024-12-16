@@ -21,7 +21,11 @@ const IssuesPage = async ({ searchParams }: Props) => {
     ? { [awaitedParams.orderBy]: "asc" }
     : undefined;
 
-  const where = { status };
+  const assignedId =
+    awaitedParams.assignee !== "unassigned" ? awaitedParams.assignee : null;
+
+  // const where = { status, assignedId };
+  const where = assignedId === "all" ? { status } : { status, assignedId };
 
   const page = parseInt(awaitedParams.page) || 1;
   const pageSize = awaitedParams.pageSize
