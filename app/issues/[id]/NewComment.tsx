@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useUsers } from "./AssigneeSelect";
 
 type CommentFormData = z.infer<typeof commentFormSchema>;
 
@@ -92,12 +93,12 @@ const NewComment = ({ issueId }: { issueId: number }) => {
   );
 };
 
-const useUsers = () =>
-  useQuery<User[]>({
-    queryKey: ["users"],
-    queryFn: () => axios.get<User[]>("/api/users").then((res) => res.data),
-    staleTime: 3600 * 1000,
-    retry: 3,
-  });
+// const useUsers = () =>
+//   useQuery<User[]>({
+//     queryKey: ["users"],
+//     queryFn: () => axios.get<User[]>("/api/users").then((res) => res.data),
+//     staleTime: 3600 * 1000,
+//     retry: 3,
+//   });
 
 export default NewComment;

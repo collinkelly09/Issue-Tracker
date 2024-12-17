@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
 import { MixerHorizontalIcon } from "@radix-ui/react-icons";
-import { Box, Button, Flex } from "@radix-ui/themes";
+import { Button, Flex } from "@radix-ui/themes";
+import { useState } from "react";
 import IssueStatusFilter from "./IssueStatusFilter";
+import IssueAssigneeFilter from "./IssueAssigneeFilter";
 
 const Filter = () => {
   const [isVisible, setVisible] = useState(false);
@@ -18,7 +19,12 @@ const Filter = () => {
       <Button variant="ghost" ml="4" onClick={handleVisibility}>
         <MixerHorizontalIcon />
       </Button>
-      {isVisible && <IssueStatusFilter />}
+      {isVisible && (
+        <Flex gap="3">
+          <IssueStatusFilter />
+          <IssueAssigneeFilter />
+        </Flex>
+      )}
     </Flex>
   );
 };

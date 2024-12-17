@@ -1,5 +1,3 @@
-// "use client";
-
 import { IssueStatusBadge, Link } from "@/app/components";
 import { Issue, Status } from "@prisma/client";
 import { ArrowUpIcon, Cross2Icon } from "@radix-ui/react-icons";
@@ -10,8 +8,8 @@ export interface IssueQuery {
   status: Status;
   orderBy: keyof Issue;
   page: string;
+  assignee: string;
   pageSize?: string;
-  sortOrder?: string;
 }
 
 interface Props {
