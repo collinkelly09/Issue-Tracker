@@ -4,12 +4,12 @@ import { notFound } from "next/navigation";
 import authOptions from "@/app/api/auth/authOptions";
 import { Box, Flex, Grid } from "@radix-ui/themes";
 import { getServerSession } from "next-auth";
+import { cache } from "react";
 import AssigneeSelect from "./AssigneeSelect";
-import DeleteIssueButton from "./DeleteIssueButton";
+import CommentsPage from "./CommentsList";
+import DeleteButton from "./DeleteButtons";
 import EditIssueButton from "./EditIssueButton";
 import IssueDetails from "./IssueDetails";
-import { cache } from "react";
-import CommentsPage from "./CommentsList";
 import NewComment from "./NewComment";
 
 interface Props {
@@ -38,7 +38,7 @@ const IssueDetailPage = async ({ params }: Props) => {
           <Flex direction="column" gap="4">
             <AssigneeSelect issue={issue} />
             <EditIssueButton issueId={issue.id}></EditIssueButton>
-            <DeleteIssueButton issueId={issue.id}></DeleteIssueButton>
+            <DeleteButton issueId={issue.id} deleting="issue" />
           </Flex>
         </Box>
       )}

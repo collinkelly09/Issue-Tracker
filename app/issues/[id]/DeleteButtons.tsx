@@ -1,26 +1,33 @@
 "use client";
 
-import { AlertDialog, Button, Flex, Text } from "@radix-ui/themes";
+import { AlertDialog, Button, Flex, Spinner, Text } from "@radix-ui/themes";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const DeleteCommentButton = ({
+const DeleteButton = ({
   issueId,
   commentId,
+  deleting,
 }: {
   issueId: number;
-  commentId: number;
+  commentId?: number;
+  deleting: string;
 }) => {
   const router = useRouter();
   const [error, setError] = useState(false);
   const [isDeleting, setDeleting] = useState(false);
 
-  const DeleteComment = async () => {
+  const handleDelete = async (issueId: number, commentId?: number) => {
     try {
+      const apiUrl = commentId
+        ? `/api/issues/${issueId}/comments/${commentId}`
+        : `/api/issues/${issueId}`;
+      const clientUrl = commentId ? `/issues/${issueId}` : "/issues/list";
+
       setDeleting(true);
-      await axios.delete(`/api/issues/${issueId}/comments/${commentId}`);
-      router.push(`/issues/${issueId}`);
+      await axios.delete(apiUrl);
+      router.push(clientUrl);
       router.refresh();
     } catch (error) {
       setDeleting(false);
@@ -32,15 +39,22 @@ const DeleteCommentButton = ({
     <>
       <AlertDialog.Root>
         <AlertDialog.Trigger>
-          <Button variant="ghost" size="1">
-            <Text color="red">Delete</Text>
-          </Button>
+          {deleting === "comment" ? (
+            <Button variant="ghost" size="1">
+              <Text color="red">Delete</Text>
+            </Button>
+          ) : (
+            <Button color="red" disabled={isDeleting}>
+              Delete Issue
+              {isDeleting && <Spinner />}
+            </Button>
+          )}
         </AlertDialog.Trigger>
         <AlertDialog.Content>
           <AlertDialog.Title>Confirm Deletion</AlertDialog.Title>
           <AlertDialog.Description>
-            Are you sure you want to delete this issue? This action cannot be
-            undone.
+            Are you sure you want to delete this {deleting}? This action cannot
+            be undone.
           </AlertDialog.Description>
           <Flex gap="3" mt="4">
             <AlertDialog.Cancel>
@@ -53,9 +67,9 @@ const DeleteCommentButton = ({
                 disabled={isDeleting}
                 variant="solid"
                 color="red"
-                onClick={DeleteComment}
+                onClick={() => handleDelete(issueId, commentId)}
               >
-                Delete Comment
+                Delete {deleting.charAt(0).toUpperCase() + deleting.slice(1)}
               </Button>
             </AlertDialog.Action>
           </Flex>
@@ -65,7 +79,7 @@ const DeleteCommentButton = ({
         <AlertDialog.Content>
           <AlertDialog.Title>Error</AlertDialog.Title>
           <AlertDialog.Description>
-            This comment could not be deleted.
+            This {deleting} could not be deleted.
           </AlertDialog.Description>
           <Button
             color="gray"
@@ -81,4 +95,4 @@ const DeleteCommentButton = ({
   );
 };
 
-export default DeleteCommentButton;
+export default DeleteButton;

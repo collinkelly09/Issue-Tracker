@@ -1,8 +1,8 @@
+import authOptions from "@/app/api/auth/authOptions";
 import prisma from "@/prisma/client";
 import { Avatar, Box, Flex, Heading, Table, Text } from "@radix-ui/themes";
-import DeleteCommentButton from "./DeleteCommentButton";
 import { getServerSession } from "next-auth";
-import authOptions from "@/app/api/auth/authOptions";
+import DeleteButton from "./DeleteButtons";
 
 const CommentsPage = async ({ issueId }: { issueId: number }) => {
   const session = await getServerSession(authOptions);
@@ -35,9 +35,10 @@ const CommentsPage = async ({ issueId }: { issueId: number }) => {
                     <Text>{comment.comment}</Text>
                   </Flex>
                   {session?.user?.email === comment.user.email && (
-                    <DeleteCommentButton
+                    <DeleteButton
                       issueId={issueId}
                       commentId={comment.id}
+                      deleting="comment"
                     />
                   )}
                 </Flex>
