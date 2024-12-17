@@ -16,19 +16,19 @@ const IssueFilter = ({
   const handleValueChange = (param: Status | any) => {
     const params = new URLSearchParams();
     const statuses = Object.values(Status);
+    const isStatus = statuses.includes(param);
 
-    if (statuses.includes(param) || param === "ALL")
-      params.append("status", param);
-    else if (searchParams.get("status"))
-      params.append("status", searchParams.get("status")!);
+    const status = searchParams.get("status");
+    const assignee = searchParams.get("assignee");
+    const orderBy = searchParams.get("orderBy");
 
-    if (!statuses.includes(param) && param !== "ALL")
-      params.append("assignee", param);
-    else if (searchParams.get("assignee"))
-      params.append("assignee", searchParams.get("assignee")!);
+    const newStatus = isStatus || param === "ALL" ? param : status;
+    if (newStatus) params.append("status", newStatus!);
 
-    if (searchParams.get("orderBy"))
-      params.append("orderBy", searchParams.get("orderBy")!);
+    const newAssignee = !isStatus && param !== "ALL" ? param : assignee;
+    if (newAssignee) params.append("assignee", newAssignee);
+
+    if (orderBy) params.append("orderBy", orderBy!);
 
     const query = params.size ? "?" + params.toString() : "";
     router.push(`/issues/list${query}`);

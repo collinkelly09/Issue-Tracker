@@ -12,19 +12,21 @@ interface Props {
 
 const IssuesPage = async ({ searchParams }: Props) => {
   const awaitedParams = await searchParams;
+  const { orderBy, assignee, status } = awaitedParams;
   const statuses = Object.values(Status);
-  const status = statuses.includes(awaitedParams.status)
-    ? awaitedParams.status
+
+  const currentStatus = statuses.includes(status) ? status : undefined;
+
+  const currentOrder = columnNames.includes(orderBy)
+    ? { [orderBy]: "asc" }
     : undefined;
 
-  const orderBy = columnNames.includes(awaitedParams.orderBy)
-    ? { [awaitedParams.orderBy]: "asc" }
-    : undefined;
+  const currentAssignee = assignee !== "unassigned" ? assignee : null;
 
-  const assignedId =
-    awaitedParams.assignee !== "unassigned" ? awaitedParams.assignee : null;
-
-  const where = assignedId === "All" ? { status } : { status, assignedId };
+  const where =
+    currentAssignee === "All"
+      ? { status: currentStatus }
+      : { status: currentStatus, assignedId: currentAssignee };
 
   const page = parseInt(awaitedParams.page) || 1;
   const pageSize = awaitedParams.pageSize
@@ -33,7 +35,7 @@ const IssuesPage = async ({ searchParams }: Props) => {
 
   const issues = await prisma.issue.findMany({
     where,
-    orderBy,
+    orderBy: currentOrder,
     skip: (page - 1) * pageSize,
     take: pageSize,
   });
