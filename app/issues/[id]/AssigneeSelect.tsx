@@ -24,7 +24,7 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
       .catch(() => {
         toast.error("Changes could not be saved.");
       });
-    if (assigned) {
+    if (assigned && issue.status) {
       axios.patch(`/api/issues/${issue.id}`, { status: "IN_PROGRESS" });
       router.refresh();
     }
