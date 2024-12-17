@@ -35,7 +35,10 @@ const CommentsPage = async ({ issueId }: { issueId: number }) => {
                     <Text>{comment.comment}</Text>
                   </Flex>
                   {session?.user?.email === comment.user.email && (
-                    <DeleteCommentButton />
+                    <DeleteCommentButton
+                      issueId={issueId}
+                      commentId={comment.id}
+                    />
                   )}
                 </Flex>
               </Table.Cell>

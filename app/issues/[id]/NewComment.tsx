@@ -47,9 +47,8 @@ const NewComment = ({ issueId }: { issueId: number }) => {
       const submissionData = {
         ...data,
         userId: user!.id,
-        issueId,
       };
-      await axios.post("/api/comments", submissionData);
+      await axios.post(`/api/issues/${issueId}/comments`, submissionData);
       router.refresh();
       reset();
       setSubmitting(false);
