@@ -31,15 +31,18 @@ const IssueAssigneeFilter = () => {
           defaultValue={searchParams.get("assignee") || ""}
           onValueChange={handleValueChange}
         >
-          <Select.Trigger placeholder="Assignee..." />
+          <Select.Trigger placeholder="Select" />
           <Select.Content>
-            <Select.Item value="all">All</Select.Item>
-            <Select.Item value="unassigned">Unassigned</Select.Item>
-            {users!.map((user) => (
-              <Select.Item key={user.id} value={user.id}>
-                {user.name}
-              </Select.Item>
-            ))}
+            <Select.Group>
+              <Select.Label>Select</Select.Label>
+              <Select.Item value="all">All</Select.Item>
+              <Select.Item value="unassigned">Unassigned</Select.Item>
+              {users!.map((user) => (
+                <Select.Item key={user.id} value={user.id}>
+                  {user.name}
+                </Select.Item>
+              ))}
+            </Select.Group>
           </Select.Content>
         </Select.Root>
       </Box>

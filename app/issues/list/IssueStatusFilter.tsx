@@ -37,13 +37,16 @@ const IssueStatusFilter = () => {
           defaultValue={searchParams.get("status") || ""}
           onValueChange={handleValueChange}
         >
-          <Select.Trigger placeholder="Status..." />
+          <Select.Trigger placeholder="Select" />
           <Select.Content>
-            {statuses.map((status) => (
-              <Select.Item key={status.value} value={status.value}>
-                {status.label}
-              </Select.Item>
-            ))}
+            <Select.Group>
+              <Select.Label>Select</Select.Label>
+              {statuses.map((status) => (
+                <Select.Item key={status.value} value={status.value}>
+                  {status.label}
+                </Select.Item>
+              ))}
+            </Select.Group>
           </Select.Content>
         </Select.Root>
       </Box>
