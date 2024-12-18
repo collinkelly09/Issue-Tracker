@@ -6,12 +6,12 @@ import authOptions from "../../auth/authOptions";
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ issueId: string }> }
 ) {
   const session = await getServerSession(authOptions);
   if (!session) return NextResponse.json({}, { status: 401 });
 
-  const { id } = await params;
+  const { issueId } = await params;
   const body = await request.json();
   const validation = patchIssueSchema.safeParse(body);
 
@@ -31,7 +31,7 @@ export async function PATCH(
   }
 
   const issue = await prisma.issue.findUnique({
-    where: { id: parseInt(id) },
+    where: { id: parseInt(issueId) },
   });
 
   if (!issue) {
@@ -39,7 +39,7 @@ export async function PATCH(
   }
 
   const updatedIssue = await prisma.issue.update({
-    where: { id: parseInt(id) },
+    where: { id: parseInt(issueId) },
     data: {
       title,
       description,

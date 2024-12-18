@@ -1,6 +1,6 @@
 "use client";
 
-import { ErrorMessage } from "@/app/components";
+import { ErrorMessage, Skeleton } from "@/app/components";
 import { commentFormSchema } from "@/app/validationSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { User } from "@prisma/client";
@@ -20,9 +20,9 @@ const NewComment = ({ issueId }: { issueId: number }) => {
   const { status, data: session } = useSession();
   const { data: users, isLoading } = useUsers();
 
-  if (status === "unauthenticated") {
-    return null;
-  }
+  // if (status === "unauthenticated") {
+  //   return null;
+  // }
 
   let user: User | undefined;
   if (!isLoading) {
@@ -59,7 +59,7 @@ const NewComment = ({ issueId }: { issueId: number }) => {
 
   return (
     <Box mt="5">
-      {status === "authenticated" && (
+      {status === "authenticated" ? (
         <Flex gap="4" justify="center" width="full">
           <Avatar
             src={session.user?.image!}
@@ -86,6 +86,8 @@ const NewComment = ({ issueId }: { issueId: number }) => {
             </Button>
           </form>
         </Flex>
+      ) : (
+        <div></div>
       )}
     </Box>
   );
