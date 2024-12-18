@@ -5,7 +5,6 @@ import { commentFormSchema } from "@/app/validationSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { User } from "@prisma/client";
 import { Avatar, Box, Button, Flex, Spinner, TextArea } from "@radix-ui/themes";
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -47,9 +46,8 @@ const NewComment = ({ issueId }: { issueId: number }) => {
       const submissionData = {
         ...data,
         userId: user!.id,
-        issueId,
       };
-      await axios.post("/api/comments", submissionData);
+      await axios.post(`/api/issues/${issueId}/comments`, submissionData);
       router.refresh();
       reset();
       setSubmitting(false);
@@ -92,13 +90,5 @@ const NewComment = ({ issueId }: { issueId: number }) => {
     </Box>
   );
 };
-
-// const useUsers = () =>
-//   useQuery<User[]>({
-//     queryKey: ["users"],
-//     queryFn: () => axios.get<User[]>("/api/users").then((res) => res.data),
-//     staleTime: 3600 * 1000,
-//     retry: 3,
-//   });
 
 export default NewComment;

@@ -1,7 +1,11 @@
+import authOptions from "@/app/api/auth/authOptions";
 import prisma from "@/prisma/client";
 import { Avatar, Box, Flex, Heading, Table, Text } from "@radix-ui/themes";
+import { getServerSession } from "next-auth";
+import DeleteButton from "./DeleteButtons";
 
 const CommentsPage = async ({ issueId }: { issueId: number }) => {
+  const session = await getServerSession(authOptions);
   const comments = await prisma.comment.findMany({
     where: { issueId },
     include: { user: true },
@@ -19,15 +23,24 @@ const CommentsPage = async ({ issueId }: { issueId: number }) => {
           {comments.map((comment) => (
             <Table.Row key={comment.id}>
               <Table.Cell>
-                <Flex align="center" gap="4">
-                  <Avatar
-                    src={comment.user.image!}
-                    size="2"
-                    radius="full"
-                    fallback="?"
-                    referrerPolicy="no-referrer"
-                  />
-                  <Text>{comment.comment}</Text>
+                <Flex justify="between" align="baseline">
+                  <Flex align="center" gap="4">
+                    <Avatar
+                      src={comment.user.image!}
+                      size="2"
+                      radius="full"
+                      fallback="?"
+                      referrerPolicy="no-referrer"
+                    />
+                    <Text>{comment.comment}</Text>
+                  </Flex>
+                  {session?.user?.email === comment.user.email && (
+                    <DeleteButton
+                      issueId={issueId}
+                      commentId={comment.id}
+                      deleting="comment"
+                    />
+                  )}
                 </Flex>
               </Table.Cell>
             </Table.Row>
