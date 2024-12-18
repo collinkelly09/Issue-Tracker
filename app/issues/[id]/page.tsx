@@ -7,7 +7,7 @@ import { getServerSession } from "next-auth";
 import { cache } from "react";
 import AssigneeSelect from "./AssigneeSelect";
 import CommentsPage from "./CommentsList";
-import DeleteButton from "./DeleteButtons";
+import DeleteButton from "../_components/DeleteButtons";
 import EditIssueButton from "./EditIssueButton";
 import IssueDetails from "./IssueDetails";
 import NewComment from "./NewComment";

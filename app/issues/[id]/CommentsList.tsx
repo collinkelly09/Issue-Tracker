@@ -2,7 +2,7 @@ import authOptions from "@/app/api/auth/authOptions";
 import prisma from "@/prisma/client";
 import { Avatar, Box, Flex, Heading, Table, Text } from "@radix-ui/themes";
 import { getServerSession } from "next-auth";
-import DeleteButton from "./DeleteButtons";
+import DeleteButton from "../_components/DeleteButtons";
 
 const CommentsPage = async ({ issueId }: { issueId: number }) => {
   const session = await getServerSession(authOptions);

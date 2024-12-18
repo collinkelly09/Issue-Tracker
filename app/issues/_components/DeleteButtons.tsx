@@ -18,12 +18,13 @@ const DeleteButton = ({
   const [error, setError] = useState(false);
   const [isDeleting, setDeleting] = useState(false);
 
-  const handleDelete = async (issueId: number, commentId?: number) => {
+  const handleDelete = async () => {
     try {
-      const apiUrl = commentId
+      const forComment = deleting === "comment";
+      const apiUrl = forComment
         ? `/api/issues/${issueId}/comments/${commentId}`
         : `/api/issues/${issueId}`;
-      const clientUrl = commentId ? `/issues/${issueId}` : "/issues/list";
+      const clientUrl = forComment ? `/issues/${issueId}` : "/issues/list";
 
       setDeleting(true);
       await axios.delete(apiUrl);
@@ -67,7 +68,7 @@ const DeleteButton = ({
                 disabled={isDeleting}
                 variant="solid"
                 color="red"
-                onClick={() => handleDelete(issueId, commentId)}
+                onClick={handleDelete}
               >
                 Delete {deleting.charAt(0).toUpperCase() + deleting.slice(1)}
               </Button>
