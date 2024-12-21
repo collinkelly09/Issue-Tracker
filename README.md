@@ -12,10 +12,10 @@ Maybe you can mention me or this repo in the acknowledgements too
   <img src="assets/logo.png" alt="logo" width="100" height="auto" />
   <h1>Issue Tracker</h1>
   
-  <p>
+  <!-- <p>
     An awesome README template for your projects! 
   </p>
-  
+   -->
   
 <!-- Badges -->
 <p>
@@ -124,16 +124,21 @@ Maybe you can mention me or this repo in the acknowledgements too
 - Feature 2
 - Feature 3
 
+<!-- ! **************************************************** -->
+
 <!-- Color Reference -->
 ### Color Reference
 
-| Color             | Hex                                                                |
+<!-- | Color             | Hex                                                                | -->
 | ----------------- | ------------------------------------------------------------------ |
-| Primary Color | ![#222831](https://via.placeholder.com/10/222831?text=+) #222831 |
+<!-- | Primary Color | ![#222831](https://via.placeholder.com/10/222831?text=+) #222831 |
 | Secondary Color | ![#393E46](https://via.placeholder.com/10/393E46?text=+) #393E46 |
 | Accent Color | ![#00ADB5](https://via.placeholder.com/10/00ADB5?text=+) #00ADB5 |
-| Text Color | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE |
+| Text Color | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE | -->
 
+
+
+<!-- ! **************************************************** -->
 
 <!-- Env Variables -->
 ### Environment Variables
@@ -168,25 +173,28 @@ This project uses NPM as package manager
 <!-- ```bash
  npm install --global yarn
 ``` -->
+<!-- ! **************************************************** -->
 
 <!-- Installation -->
-### Installation
+<!-- ### Installation
 
 Install my-project with npm
 
 ```bash
   yarn install my-project
   cd my-project
-```
+``` -->
    
 <!-- Running Tests -->
-### Running Tests
+<!-- ### Running Tests
 
 To run tests, run the following command
 
 ```bash
   yarn test test
-```
+``` -->
+
+<!-- ! **************************************************** -->
 
 <!-- Run Locally -->
 ### Run Locally
@@ -200,34 +208,35 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd issue-tracker
 ```
 
 Install dependencies
 
 ```bash
-  yarn install
+  npm install
 ```
 
-Start the server
+Build and start the server
 
 ```bash
-  yarn start
+  npm build
+  npm start
 ```
 
-
+<!-- ! **************************************************** -->
 <!-- Deployment -->
-### Deployment
+<!-- ### Deployment
 
 To deploy this project run
 
 ```bash
   yarn deploy
-```
+``` -->
 
 
 <!-- Usage -->
-## Usage
+<!-- ## Usage
 
 Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
 
@@ -238,9 +247,9 @@ import Component from 'my-project'
 function App() {
   return <Component />
 }
-```
+``` -->
 
-
+<!-- ! **************************************************** -->
 
 <!-- Contributing -->
 ## Contributing
@@ -261,17 +270,6 @@ See `contributing.md` for ways to get started.
 <!-- Contact -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Collin Kelly - [@LinkedIn](https://www.linkedin.com/in/collinkelly09/) - collinkelly09@gmail.com
 
 Project Link: [https://github.com/collinkelly09/issue-tracker](https://github.com/collinkelly09/issue-tracker)
-
-
-<!-- Acknowledgments -->
-## Acknowledgements
-
-Use this section to mention useful resources and libraries that you have used in your projects.
-
- - [Shields.io](https://shields.io/)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
- - [Readme Template](https://github.com/othneildrew/Best-README-Template)
