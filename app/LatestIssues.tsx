@@ -3,9 +3,14 @@ import { Avatar, Card, Flex, Heading, Table } from "@radix-ui/themes";
 import React from "react";
 import { IssueStatusBadge } from "./components";
 import Link from "next/link";
+import { Issue, User } from "@prisma/client";
+
+interface IssueWithUser extends Issue {
+  assignedUser: User | null;
+}
 
 const LatestIssues = async () => {
-  const latestIssues = await prisma.issue.findMany({
+  const issues: IssueWithUser[] = await prisma.issue.findMany({
     orderBy: { createdAt: "desc" },
     take: 5,
     include: {
@@ -20,7 +25,7 @@ const LatestIssues = async () => {
       </Heading>
       <Table.Root>
         <Table.Body>
-          {latestIssues.map((issue) => (
+          {issues.map((issue) => (
             <Table.Row key={issue.id}>
               <Table.Cell>
                 <Flex justify="between">
