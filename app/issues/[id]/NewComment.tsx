@@ -20,10 +20,6 @@ const NewComment = ({ issueId }: { issueId: number }) => {
   const { status, data: session } = useSession();
   const { data: users, isLoading } = useUsers();
 
-  // if (status === "unauthenticated") {
-  //   return null;
-  // }
-
   let user: User | undefined;
   if (!isLoading) {
     user = users?.find((user) => user.email === session?.user?.email);

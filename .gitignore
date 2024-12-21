@@ -40,3 +40,6 @@ sql_queries
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Development README
+dev_README.md

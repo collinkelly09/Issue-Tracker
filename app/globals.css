@@ -13,6 +13,9 @@
     --foreground-rgb: 255, 255, 255;
 
   }
+
+
+  
 }
 
 
@@ -29,4 +32,5 @@ body {
   .active-nav-link {
     @apply !text-zinc-900
   }
+
 }

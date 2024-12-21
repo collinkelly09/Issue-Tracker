@@ -5,55 +5,47 @@ import { IssueStatusBadge } from "./components";
 import Link from "next/link";
 
 const LatestIssues = async () => {
-    const latestIssues = await prisma.issue.findMany({
-        orderBy: { createdAt: "desc" },
-        take: 5,
-        include: {
-            assignedUser: true,
-        },
-    });
+  const latestIssues = await prisma.issue.findMany({
+    orderBy: { createdAt: "desc" },
+    take: 5,
+    include: {
+      assignedUser: true,
+    },
+  });
 
-    return (
-        <Card>
-            <Heading size="4" mb="5">
-                Latest Issues
-            </Heading>
-            <Table.Root>
-                <Table.Body>
-                    {latestIssues.map((issue) => (
-                        <Table.Row key={issue.id}>
-                            <Table.Cell>
-                                <Flex justify="between">
-                                    <Flex
-                                        direction="column"
-                                        align="start"
-                                        gap="2"
-                                    >
-                                        <Link href={`/issues/${issue.id}`}>
-                                            {issue.title}
-                                        </Link>
-                                        <IssueStatusBadge
-                                            status={issue.status}
-                                        />
-                                    </Flex>
+  return (
+    <Card>
+      <Heading size="4" mb="5">
+        Latest Issues
+      </Heading>
+      <Table.Root>
+        <Table.Body>
+          {latestIssues.map((issue) => (
+            <Table.Row key={issue.id}>
+              <Table.Cell>
+                <Flex justify="between">
+                  <Flex direction="column" align="start" gap="2">
+                    <Link href={`/issues/${issue.id}`}>{issue.title}</Link>
+                    <IssueStatusBadge status={issue.status} />
+                  </Flex>
 
-                                    {issue.assignedUser && (
-                                        <Avatar
-                                            src={issue.assignedUser.image!}
-                                            fallback="?"
-                                            size="2"
-                                            radius="full"
-                                            referrerPolicy="no-referrer"
-                                        />
-                                    )}
-                                </Flex>
-                            </Table.Cell>
-                        </Table.Row>
-                    ))}
-                </Table.Body>
-            </Table.Root>
-        </Card>
-    );
+                  {issue.assignedUser && (
+                    <Avatar
+                      src={issue.assignedUser.image!}
+                      fallback="?"
+                      size="2"
+                      radius="full"
+                      referrerPolicy="no-referrer"
+                    />
+                  )}
+                </Flex>
+              </Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table.Root>
+    </Card>
+  );
 };
 
 export default LatestIssues;
