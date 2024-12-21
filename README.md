@@ -9,7 +9,7 @@ Maybe you can mention me or this repo in the acknowledgements too
 <div align="center">
 
 
-  <img src="assets/logo.png" alt="logo" width="200" height="auto" />
+  <img src="assets/logo.png" alt="logo" width="100" height="auto" />
   <h1>Issue Tracker</h1>
   
   <p>
@@ -28,7 +28,7 @@ Maybe you can mention me or this repo in the acknowledgements too
   <a href="https://github.com/collinkelly09/Issue-Tracker/forks">
     <img src="https://img.shields.io/github/forks/collinkelly09/issue-tracker" alt="forks" />
   </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/issues/">
+  <a href="https://github.com/collinkelly09/issue-tracker/issues/">
     <img src="https://img.shields.io/github/issues/collinkelly09/issue-tracker" alt="open issues" />
   </a>
  
@@ -140,9 +140,22 @@ Maybe you can mention me or this repo in the acknowledgements too
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`API_KEY`
 
-`ANOTHER_API_KEY`
+`DATABASE_URL`
+
+`NEXTAUTH_URL` provided
+
+`NEXTAUTH_SECRET`
+
+`GITHUB_ID`
+
+`GITHUB_SECRET`
+
+`GOOGLE_CLIENT_ID`
+
+`GOOGLE_CLIENT_ID`
+
+Reference the [.env.example](.env.example)
 
 <!-- Getting Started -->
 ## Getting Started
@@ -150,11 +163,11 @@ To run this project, you will need to add the following environment variables to
 <!-- Prerequisites -->
 ### Prerequisites
 
-This project uses Yarn as package manager
+This project uses NPM as package manager
 
-```bash
+<!-- ```bash
  npm install --global yarn
-```
+``` -->
 
 <!-- Installation -->
 ### Installation
@@ -181,7 +194,7 @@ To run tests, run the following command
 Clone the project
 
 ```bash
-  git clone https://github.com/Louis3797/awesome-readme-template.git
+  git clone https://github.com/collinkelly09/issue-tracker.git
 ```
 
 Go to the project directory
@@ -227,18 +240,13 @@ function App() {
 }
 ```
 
-<!-- Roadmap -->
-## Roadmap
-
-* [x] Todo 1
-* [ ] Todo 2
 
 
 <!-- Contributing -->
 ## Contributing
 
-<a href="https://github.com/Louis3797/awesome-readme-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Louis3797/awesome-readme-template" />
+<a href="https://github.com/collinkelly09/issue-tracker/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=collinkelly09/issue-tracker" />
 </a>
 
 
@@ -247,27 +255,7 @@ Contributions are always welcome!
 See `contributing.md` for ways to get started.
 
 
-<!-- Code of Conduct -->
-### Code of Conduct
 
-Please read the [Code of Conduct](https://github.com/Louis3797/awesome-readme-template/blob/master/CODE_OF_CONDUCT.md)
-
-<!-- FAQ -->
-## FAQ
-
-- Question 1
-
-  + Answer 1
-
-- Question 2
-
-  + Answer 2
-
-
-<!-- License -->
-## License
-
-Distributed under the no License. See LICENSE.txt for more information.
 
 
 <!-- Contact -->
@@ -275,7 +263,7 @@ Distributed under the no License. See LICENSE.txt for more information.
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
-Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/Louis3797/awesome-readme-template)
+Project Link: [https://github.com/collinkelly09/issue-tracker](https://github.com/collinkelly09/issue-tracker)
 
 
 <!-- Acknowledgments -->
