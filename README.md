@@ -198,32 +198,6 @@ Reference the [.env.example](.env.example)
 
 This project uses NPM as package manager
 
-<!-- ```bash
- npm install --global yarn
-``` -->
-<!-- ! **************************************************** -->
-
-<!-- Installation -->
-<!-- ### Installation
-
-Install my-project with npm
-
-```bash
-  yarn install my-project
-  cd my-project
-``` -->
-   
-<!-- Running Tests -->
-<!-- ### Running Tests
-
-To run tests, run the following command
-
-```bash
-  yarn test test
-``` -->
-
-<!-- ! **************************************************** -->
-
 <!-- Run Locally -->
 ### Run Locally
 
@@ -242,62 +216,18 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  npm install
+  npx prisma migrate dev
 ```
 
-Build and start the server
+Start the server
 
 ```bash
-  npm build
-  npm start
+  npm run dev
 ```
-
-<!-- ! **************************************************** -->
-<!-- Deployment -->
-<!-- ### Deployment
-
-To deploy this project run
-
-```bash
-  yarn deploy
-``` -->
-
-
-<!-- Usage -->
-<!-- ## Usage
-
-Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
-
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-``` -->
-
-<!-- ! **************************************************** -->
-
-<!-- Contributing -->
-## Contributing
-
-<a href="https://github.com/collinkelly09/issue-tracker/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=collinkelly09/issue-tracker" />
-</a>
-
-
-Contributions are always welcome!
-
-See `contributing.md` for ways to get started.
-
-
-
-
 
 <!-- Contact -->
 ## Contact
 
-Collin Kelly - [@LinkedIn](https://www.linkedin.com/in/collinkelly09/) - collinkelly09@gmail.com
+Collin Kelly - [LinkedIn](https://www.linkedin.com/in/collinkelly09/) - collinkelly09@gmail.com
 
 Project Link: [https://github.com/collinkelly09/issue-tracker](https://github.com/collinkelly09/issue-tracker)
