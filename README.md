@@ -181,7 +181,7 @@ _Below is an example of how you can instruct your audience on installing and set
     ```sh
     npx prisma migrate dev
     ```
-6. Run and start the server
+6. Build and start the server
     ```sh
     npm run build
     npm start
