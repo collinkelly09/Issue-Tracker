@@ -34,15 +34,6 @@ Maybe you can mention me or this repo in the acknowledgements too
  
 </p>
    
-<!-- <h4>
-    <a href="https://github.com/collinkelly09/issue-tracker/">View Demo</a>
-  <span> · </span>
-    <a href="https://github.com/collinkelly09/issue-tracker">Documentation</a>
-  <span> · </span>
-    <a href="https://github.com/Louis3797/collinkelly09/issue-tracker/issues/">Report Bug</a>
-  <span> · </span>
-    <a href="https://github.com/collinkelly09/issue-tracker/issues/">Request Feature</a>
-  </h4> -->
 </div>
 
 <br />
@@ -55,6 +46,7 @@ Maybe you can mention me or this repo in the acknowledgements too
   * [Tech Stack](#tech-stack)
   * [Features](#features)
   * [Environment Variables](#environment-variables)
+  
 - [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Run Locally](#run-locally)

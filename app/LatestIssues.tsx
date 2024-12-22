@@ -52,4 +52,6 @@ const LatestIssues = async () => {
   );
 };
 
+// export const dynamic = "force-dynamic";
+
 export default LatestIssues;
