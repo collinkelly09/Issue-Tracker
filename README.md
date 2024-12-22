@@ -117,8 +117,7 @@ Maybe you can mention me or this repo in the acknowledgements too
 ### Features
 
 - Create an Issue
-    - Users can create new issues by filling in the relevant details (e.g., title, description, priority).
-    - Optionally, users can assign a category or tags to help categorize the issue.
+    - Users can create new issues by filling in the relevant details (e.g., title, description).
 
 - Edit an Issue
     - Users can edit any previously created issue.
@@ -142,22 +141,6 @@ Maybe you can mention me or this repo in the acknowledgements too
 - Comment on an Issue
     - Users can add comments to an issue for collaboration, discussion, or clarification.
     - Comments are stored chronologically and can be edited or deleted by the comment author.
-
-<!-- ! **************************************************** -->
-
-<!-- Color Reference -->
-<!-- ### Color Reference
-
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Primary Color | ![#222831](https://via.placeholder.com/10/222831?text=+) #222831 |
-| Secondary Color | ![#393E46](https://via.placeholder.com/10/393E46?text=+) #393E46 |
-| Accent Color | ![#00ADB5](https://via.placeholder.com/10/00ADB5?text=+) #00ADB5 |
-| Text Color | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE | -->
-
-
-
-<!-- ! **************************************************** -->
 
 <!-- Env Variables -->
 ### Environment Variables
