@@ -190,10 +190,11 @@ Install dependencies
   npx prisma migrate dev
 ```
 
-Start the server
+Run ans start the server
 
 ```bash
-  npm run dev
+  npm run build
+  npm start
 ```
 
 <!-- Contact -->
