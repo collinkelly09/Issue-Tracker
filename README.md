@@ -117,9 +117,32 @@ Maybe you can mention me or this repo in the acknowledgements too
 <!-- Features -->
 ### Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Create an Issue
+    - Users can create new issues by filling in the relevant details (e.g., title, description, priority).
+    - Optionally, users can assign a category or tags to help categorize the issue.
+
+- Edit an Issue
+    - Users can edit any previously created issue.
+    - Changes can be made to the title, description, and other relevant fields.
+
+- View an Issue
+    - Users can view the details of an issue, including the title, description, current status, assigned user, and comments.
+
+- Delete an Issue
+    - Users have the ability to delete any issue they have created or have permission to manage.
+    - Once deleted, the issue will be removed from the system.
+
+- Update the Status of an Issue
+    - Users can update the status of an issue (e.g., Open, In Progress, Resolved, Closed).
+    - The status helps track the progress and workflow of the issue.
+
+- Assign an Issue to a User
+    - Users can assign issues to specific team members or individuals.
+    - This helps in ensuring accountability and progress tracking on each issue.
+    
+- Comment on an Issue
+    - Users can add comments to an issue for collaboration, discussion, or clarification.
+    - Comments are stored chronologically and can be edited or deleted by the comment author.
 
 <!-- ! **************************************************** -->
 

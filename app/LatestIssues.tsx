@@ -1,9 +1,8 @@
 import prisma from "@/prisma/client";
-import { Avatar, Card, Flex, Heading, Table } from "@radix-ui/themes";
-import React from "react";
-import { IssueStatusBadge } from "./components";
-import Link from "next/link";
 import { Issue, User } from "@prisma/client";
+import { Avatar, Card, Flex, Heading, Table } from "@radix-ui/themes";
+import Link from "next/link";
+import { IssueStatusBadge } from "./components";
 
 interface IssueWithUser extends Issue {
   assignedUser: User | null;
