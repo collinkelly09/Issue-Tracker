@@ -105,11 +105,11 @@ Maybe you can mention me or this repo in the acknowledgements too
 ### Features
 
 - Create an Issue
-    - Users can create new issues by filling in the relevant details (e.g., title, description).
+  * Users can create new issues by filling in the relevant details (e.g., title, description).
 
 - Edit an Issue
-    - Users can edit any previously created issue.
-    - Changes can be made to the title, description, and other relevant fields.
+  * Users can edit any previously created issue.
+  * Changes can be made to the title, description, and other relevant fields.
 
 - View an Issue
     - Users can view the details of an issue, including the title, description, current status, assigned user, and comments.
@@ -164,31 +164,37 @@ This project uses NPM as package manager
 <!-- Run Locally -->
 ### Run Locally
 
-Clone the project
-
-```bash
+- Clone the project
+  ```bash
   git clone https://github.com/collinkelly09/issue-tracker.git
-```
+  ```
 
-Go to the project directory
+- Go to the project directory
 
-```bash
+  ```bash
   cd issue-tracker
-```
+  ```
 
-Install dependencies
+- Install dependencies
 
-```bash
+  ```bash
   npm install
+  ```
+
+- Set [Environment Variables](#environment-variables)
+
+- Make migrations
+
+  ```bash
   npx prisma migrate dev
-```
+  ```
 
-Run ans start the server
+- Run ans start the server
 
-```bash
+  ```bash
   npm run build
   npm start
-```
+  ```
 
 <!-- Contact -->
 ## Contact
