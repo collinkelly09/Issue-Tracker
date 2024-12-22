@@ -133,12 +133,14 @@ Maybe you can mention me or this repo in the acknowledgements too
 <!-- Env Variables -->
 ### Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+1) To run this project, you will need to rename [.env.example](.env.example) to .env (no period after).
+
+2) Follow the provided instructions within the file and set the environment variables.
 
 
 `DATABASE_URL`
 
-`NEXTAUTH_URL` provided
+`NEXTAUTH_URL`
 
 `NEXTAUTH_SECRET`
 
@@ -150,15 +152,6 @@ To run this project, you will need to add the following environment variables to
 
 `GOOGLE_CLIENT_SECRET`
 
-Reference the [.env.example](.env.example)
-
-- For `NEXTAUTH_SECRET` open your terminal and execute the following to generate a random string 
-    ```bash 
-    openssl rand -base64 32
-    ```
-    
-- For `GITHUB_SECRET` and `ID` visit documentation [here](https://next-auth.js.org/providers/github).
-- For `GOOGLE_CLIENT_SECRET` and `ID` visit documentation [here](https://next-auth.js.org/providers/google).
 
 <!-- Getting Started -->
 ## Getting Started
