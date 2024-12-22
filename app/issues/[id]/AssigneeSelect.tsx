@@ -26,7 +26,6 @@ const AssigneeSelect = ({ issue }: { issue: Issue }) => {
       });
     if (assigned && issue.status) {
       await axios.patch(`/api/issues/${issue.id}`, { status: "IN_PROGRESS" });
-      router.push(`/issues/${issue.id}`);
       router.refresh();
     }
   };

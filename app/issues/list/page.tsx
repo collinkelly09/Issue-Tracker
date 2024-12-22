@@ -12,13 +12,13 @@ interface Props {
 
 const IssuesPage = async ({ searchParams }: Props) => {
   const awaitedParams = await searchParams;
-  const { orderBy, assignee, status } = awaitedParams;
+  const { orderBy, assignee, status, dir } = awaitedParams;
   const statuses = Object.values(Status);
 
   const currentStatus = statuses.includes(status) ? status : undefined;
 
   const currentOrder = columnNames.includes(orderBy)
-    ? { [orderBy]: "asc" }
+    ? { [orderBy]: dir ?? "asc" }
     : undefined;
 
   const currentAssignee = assignee !== "unassigned" ? assignee : null;
