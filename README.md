@@ -62,7 +62,6 @@ Maybe you can mention me or this repo in the acknowledgements too
   * [Running Tests](#running-tests) -->
   * [Run Locally](#run-locally)
   <!-- * [Deployment](#deployment) -->
-- [Contributing](#contributing)
   
 
 <!-- About the Project -->
