@@ -34,15 +34,6 @@ Maybe you can mention me or this repo in the acknowledgements too
  
 </p>
    
-<!-- <h4>
-    <a href="https://github.com/collinkelly09/issue-tracker/">View Demo</a>
-  <span> · </span>
-    <a href="https://github.com/collinkelly09/issue-tracker">Documentation</a>
-  <span> · </span>
-    <a href="https://github.com/Louis3797/collinkelly09/issue-tracker/issues/">Report Bug</a>
-  <span> · </span>
-    <a href="https://github.com/collinkelly09/issue-tracker/issues/">Request Feature</a>
-  </h4> -->
 </div>
 
 <br />
@@ -53,16 +44,12 @@ Maybe you can mention me or this repo in the acknowledgements too
 - [About the Project](#about-the-project)
   * [Screenshots](#screenshots)
   * [Tech Stack](#tech-stack)
-  <!-- * [Features](#features) -->
-  <!-- * [Color Reference](#color-reference) -->
+  * [Features](#features)
   * [Environment Variables](#environment-variables)
+  
 - [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
-  <!-- * [Installation](#installation)
-  * [Running Tests](#running-tests) -->
   * [Run Locally](#run-locally)
-  <!-- * [Deployment](#deployment) -->
-- [Contributing](#contributing)
   
 
 <!-- About the Project -->
@@ -118,8 +105,7 @@ Maybe you can mention me or this repo in the acknowledgements too
 ### Features
 
 - Create an Issue
-    - Users can create new issues by filling in the relevant details (e.g., title, description, priority).
-    - Optionally, users can assign a category or tags to help categorize the issue.
+    - Users can create new issues by filling in the relevant details (e.g., title, description).
 
 - Edit an Issue
     - Users can edit any previously created issue.
@@ -143,22 +129,6 @@ Maybe you can mention me or this repo in the acknowledgements too
 - Comment on an Issue
     - Users can add comments to an issue for collaboration, discussion, or clarification.
     - Comments are stored chronologically and can be edited or deleted by the comment author.
-
-<!-- ! **************************************************** -->
-
-<!-- Color Reference -->
-<!-- ### Color Reference
-
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Primary Color | ![#222831](https://via.placeholder.com/10/222831?text=+) #222831 |
-| Secondary Color | ![#393E46](https://via.placeholder.com/10/393E46?text=+) #393E46 |
-| Accent Color | ![#00ADB5](https://via.placeholder.com/10/00ADB5?text=+) #00ADB5 |
-| Text Color | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE | -->
-
-
-
-<!-- ! **************************************************** -->
 
 <!-- Env Variables -->
 ### Environment Variables
@@ -220,10 +190,11 @@ Install dependencies
   npx prisma migrate dev
 ```
 
-Start the server
+Run ans start the server
 
 ```bash
-  npm run dev
+  npm run build
+  npm start
 ```
 
 <!-- Contact -->
