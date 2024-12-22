@@ -53,15 +53,11 @@ Maybe you can mention me or this repo in the acknowledgements too
 - [About the Project](#about-the-project)
   * [Screenshots](#screenshots)
   * [Tech Stack](#tech-stack)
-  <!-- * [Features](#features) -->
-  <!-- * [Color Reference](#color-reference) -->
+  * [Features](#features)
   * [Environment Variables](#environment-variables)
 - [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
-  <!-- * [Installation](#installation)
-  * [Running Tests](#running-tests) -->
   * [Run Locally](#run-locally)
-  <!-- * [Deployment](#deployment) -->
   
 
 <!-- About the Project -->
