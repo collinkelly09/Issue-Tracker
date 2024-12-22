@@ -20,7 +20,7 @@ Maybe you can mention me or this repo in the acknowledgements too
 <!-- Badges -->
 <p>
   <a href="https://github.com/collinkelly09/Issue-Tracker/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/collinkelly09/issue-tracker" alt="contributors" width="auto" height="auto" />
+    <img src="https://img.shields.io/github/contributors/collinkelly09/issue-tracker" alt="contributors" />
   </a>
   <a href="">
     <img src="https://img.shields.io/github/last-commit/collinkelly09/issue-tracker" alt="last update" />
@@ -60,7 +60,7 @@ Maybe you can mention me or this repo in the acknowledgements too
 ### Screenshots
 
 <div align="center"> 
-  <img src="assets\dashboard.png" alt="dashboard" />
+  <img src="assets\dashboard.png" alt="dashboard" width="800" height="auto" />
   <details>
   <summary>more</summary>
   <img src="assets\issues.png" alt="issues" />
