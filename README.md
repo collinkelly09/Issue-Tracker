@@ -60,7 +60,7 @@ Maybe you can mention me or this repo in the acknowledgements too
 ### Screenshots
 
 <div align="center"> 
-  <img src="assets\dashboard.png" alt="dashboard" width="800" height="auto" />
+  <img src="assets\dashboard.png" alt="dashboard" />
   <details>
   <summary>more</summary>
   <img src="assets\issues.png" alt="issues" />
