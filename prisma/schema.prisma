@@ -21,6 +21,8 @@ model Issue {
   assignedUser User?    @relation(fields: [assignedId], references: [id])
 
   Comment Comment[]
+
+  @@map("issues")
 }
 
 enum Status {
@@ -37,6 +39,8 @@ model Comment {
   issue     Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
   userId    String   @db.VarChar(255)
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("comments")
 }
 
 model Account {
